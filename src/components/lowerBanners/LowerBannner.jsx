@@ -1,13 +1,13 @@
 import Button from "../Button/Button";
 import "./lowerbanner.css";
+import banner2 from '../../assets/banner2.avif'
 
-import React from "react";
 
 const LowerBannner = () => {
   return (
     <div className="container-fluid lower_banner d-grid gap-4">
       <div className="upper position-relative">
-              <img src="https://cdn.sanity.io/images/qa41whrn/prod/ac3fc79415884460f1a7b3459b333ff091dee5a5-6000x2167.jpg?w=2160&q=80&auto=format" alt="" />
+              <img src={banner2} alt="" />
               <div className="info">
                   <h1 className="text-center" >FOR ALL THE <br /> SNEAKERHEADS</h1>
                   <p>YOUR ONE-STOP SNEAKER-SHOP</p>
@@ -16,7 +16,7 @@ const LowerBannner = () => {
       </div>
 
       <div className="lower position-relative">
-              <img src="https://cdn.sanity.io/images/qa41whrn/prod/7b5747b392d279cc9bf9beeb81c839405627c05c-2000x694.png?w=2160&q=80&auto=format" alt="" />
+              <img src={banner2} alt="" />
               <div className="info">
                   <h1 className="text-center" >TRAVEL IN STYLE</h1>
                   <p>GEAR UP FOR YOUR NEXT ADVENTURE</p>
