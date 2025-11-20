@@ -1,9 +1,9 @@
 import React from 'react'
 import Loader from './Loader'
 
- const LoaderComponent = ({isLoading,children}) => {
+ const LoaderComponent = ({isLoading,children,height}) => {
     if (isLoading) {
-      return <Loader/>
+      return <Loader height={height}/>
     }
     return children
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect ,useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { v4 as uuid } from "uuid";
@@ -12,24 +12,34 @@ import "swiper/css/pagination";
 import "./swipper.css";
 
 // import required modules
-import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
+import { Keyboard, Scrollbar, Navigation } from "swiper/modules";
 import OneProduct from "../oneProduct/OneProduct";
 import { getProducts } from "../../../utils";
+import LoaderComponent from "../loader/LoaderComponent";
 
 export default function ProductSlider() {
 
  const [data, setData] = useState(null)
+ const [loading, setLoading] = useState(false)
 
   useEffect(()=>{
     (async () => {
-      const res = await getProducts()
-      // console.log(res);
-     setData(res)
+      try {
+        setLoading(true)
+         const res = await getProducts()
+         setData(res)
+        setLoading(false)
+        
+      } catch (error) {
+        setLoading(false)
+      }
+     
     })()
   },[])
 
   return (
     <>
+    <LoaderComponent isLoading={loading} height={'30vh'}>
       <h4>PUMA SPOTLIGHT</h4>
       <Swiper
         slidesPerView={1.5}
@@ -60,6 +70,7 @@ export default function ProductSlider() {
         
         
       </Swiper>
+      </LoaderComponent>
     </>
   );
 }
